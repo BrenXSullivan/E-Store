@@ -1,0 +1,16 @@
+<h1>MID-MERCH</h1>
+
+
+<hr/>
+
+There are <%= @products.count %> products and counting!
+<hr/>
+
+
+
+<li><%=product.name%>: <%product.price %></li>
+<li><%= image_tag(product.image, width: 50)%></li>
+<li><%=product.description%>: <%product.quantity%>
+</li>
+<hr/>
+<strong>
