@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-validates :name, presence: true
+validates :title, presence: true
 validates :price, comparison: {greater_than:0}
 
 

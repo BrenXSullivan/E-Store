@@ -3,44 +3,38 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
+#   movies = Movie.create([{ title: "Star Wars" }, { title: "Lord of the Rings" }])
+#   Character.create(title: "Luke", movie: movies.first)
+Product.destroy_all
 Product.create([
 {
-name: "Batmobile",
+title: "Batmobile",
 description: "Batman's car from the original movie",
-image: "batmobile.png",
+image: "Batmobile.jpg",
 price: 1000000.00,
 quantity:2,
 },
 
 {
-name: "Glasses",
+title: "Glasses",
 description: "Good for seeing things",
 image: "glasses.png",
 price:20.00,
 quantity:100,
 },
-
+ 
 {
-name: "Water Bottles",
+title: "Water Bottles",
 description: "Great at keeping you hydrated",
-image: "bottle.png",
+image: "watter_bottle.jpg",
 price: 15.00,
 quantity:30,
 },
 
 {
-name: "Textbooks",
+title: "Textbooks",
 description: "Old, used books nobody wants anymore",
-image: "textbook.png",
+image: "textbooks.jpg",
 price:25.00,
 quantity:25,
-}
-
-
-
-
-
-])
+}])
