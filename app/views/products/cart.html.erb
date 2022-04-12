@@ -1,0 +1,12 @@
+<h1>Your Cart!<h1>
+
+<ul>
+<% @cart.each do |product| %>
+<ul class="list-group">
+    <li class="list-group-item"> <%=product["title"]%> </li>
+</ul>
+<%end%>
+<%=@cart.length%> items in your cart
+<ul>
+<a class= "btn btn-primary" href="/">Keep Shopping</a>
+<a class= "btn btn-primary" href="/order">Order Now!</a>

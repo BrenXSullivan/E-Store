@@ -1,25 +1,30 @@
-<h1>MID-MERCH</h1>
+<div class= "container">
+    <h1>MID-MERCH</h1>
 
 
-<hr/>
-<div class="alert alert-primary" role="alert">
-There are <%= @products.count %> products and counting!
+    <hr/>
+    <div class="alert alert-primary" role="alert">
+    <%=@cart.length%> items in your cart
+    </div>
+    <hr/>
+
+
+    <% @products.each do |product| %>
+    <div class="row row-cols-3">
+        <ul class="list-group">
+            <li class="list-group-item"><strong><%=product.title%></strong>:</li>
+            <li class="list-group-item"><%= image_tag(product.image, width: 200)%></li>
+            <li class="list-group-item"><%=product.description%></li>
+            <li class="list-group-item">Costs $<%=product.price%> dollars</li>
+            <li class="list-group-item"><%=product.quantity%> left!</li>
+            <li class="list-group-item"><%= link_to "Buy Now", buy_path(product), class: "btn btn-primary" %></li>
+    
+        </ul>
+    </div>
+    <hr/>
+    <%end%>
+    <hr/>
+    <strong>
+
+    <a class= "btn btn-primary" href="/cart">Checkout</a>
 </div>
-<hr/>
-
-
-<% @products.each do |product| %>
-<ul class="list-group">
-    <li class="list-group-item"><strong><%=product.title%></strong>:</li>
-    <li class="list-group-item"><%= image_tag(product.image, width: 200)%></li>
-    <li class="list-group-item"><%=product.description%></li>
-    <li class="list-group-item">costs $<%=product.price%> dollars</li>
-    <li class="list-group-item"><%=product.quantity%> left!</li>
-    <li class="list-group-item"><%= link_to "Buy Now", buy_path(product), class: "btn btn-primary" %></li>
-</ul>
-<hr/>
-<%end%>
-<hr/>
-<strong>
-
-<a href="/checkout">Checkout</a>
