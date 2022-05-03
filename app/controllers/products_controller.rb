@@ -1,14 +1,17 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    if session[:cart].nil?
+      session[:cart] = []
+    end
     @cart = session[:cart]
   end
 
-def show
+  def show
   @product = Product.find(params[:id])
-end
+  end
 
-def buy
+  def buy
 
 
   if session[:cart].nil?
@@ -17,13 +20,22 @@ def buy
   @product = Product.find(params[:id])
   session[:cart].append(@product)
   redirect_to :root
-end
-def cart
+  end
+  def cart
   @cart = session[:cart]
   #session[:cart] = []
-end
+  end
 
-def order
+  def list
+    #return products as json list
+    @products = Product.all
+    render json: @products
+  end
+
+
+
+
+  def order
   @cart = session[:cart]
   @cart.each do |item|
     p=Product.find(item["id"])
@@ -31,12 +43,12 @@ def order
     p.save
   end
   session[:cart] = []
-end
+  end
 
 
-private
-def product_params
+  private
+  def product_params
   params.require(:product).permit(:title, :price, :image, :description)
-end
+  end
 
 end
